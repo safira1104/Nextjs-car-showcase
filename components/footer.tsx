@@ -25,17 +25,17 @@ const Footer = () => {
             </div>
 
                 <div className='footer__links'>
-                    {footerLinks.map((link) => (
-                        <div key={link.title} className='footer__link'>
-                            <h3 className='font-bold'>{link.title}</h3>
+                    {footerLinks.map((item) => (
+                        <div key={item.title} className='footer__link'>
+                            <h3 className='font-bold'>{item.title}</h3>
                             <div className='flex flex-col gap-5'>
-                            {link.links.map((item) => (
+                            {item.links.map((link) => (
                                 <Link 
-                                    key={item.title}
-                                    href={item.url}
+                                    key={link.title}
+                                    href={link.url}
                                     className="text-gray-500"
                                 >
-                                    {item.title}
+                                    {link.title}
                                 </Link>
                             ))}
                             </div>
@@ -47,12 +47,12 @@ const Footer = () => {
                 items-center flex-wrap mt-10 border-t 
                 border-gray-100 sm:px-16 px-6 py-10'>
                     <p>@2025 Carhub. All Right Reserved </p>
-                    <div className='footer__copyright-link'>
+                    <div className='footer__copyrights-link'>
                         <Link href="/" className='text-gray-500'>
-                        Privacy Policy
+                        Privacy & Policy
                         </Link>
                         <Link href="/" className='text-gray-500'>
-                        Term of Use
+                        Term & Condition
                         </Link>
                     </div>
                 </div>
