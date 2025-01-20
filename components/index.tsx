@@ -1,7 +1,7 @@
 import Hero from "./hero";
 import CustomButton from "./custom-button";
 import Navbar from "./navbar";
-import Footer from "./Footer";
+import Footer from "./footer";
 
 export{
     Hero,
