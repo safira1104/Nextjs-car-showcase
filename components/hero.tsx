@@ -9,6 +9,7 @@ const Hero = () => {
   }
   return (
     <div className='hero'>
+        {/* Left section: Contains text content and the call-to-action button */}
         <div className="flex-1 pt-36 padding-x">
             <h1 className='hero__title'>
                 Find, book, or rent a car - quickly and easily!
@@ -23,6 +24,8 @@ const Hero = () => {
                 handleClick={() => {handleScroll}}
              />
         </div>
+
+        {/* Right section: Contains the hero image with an overlay */}
         <div className='hero__image-container'>
           <div className='hero__image'>
             <Image src='/hero.png' alt='hero' 

@@ -6,8 +6,10 @@ import CustomButton from './custom-button'
 const Navbar = () => {
   return (
     <header className='w-full absolute z-10'>
+         {/* Navigation container */}
         <nav className='max-w-[1440px] mx-auto 
         flex justify-between items-centersm:px-16 px-6 py-4'>
+            {/* Logo section: Clicking the logo routes to the homepage */}
             <Link href="/" className='flex justify-center items-center'>
                 <Image 
                     src="/logo.svg"
@@ -17,6 +19,7 @@ const Navbar = () => {
                     className='object-contain'
                 />
             </Link>
+            {/* "Sign In" button using the CustomButton component */}
            < CustomButton 
                 title= "Sign In" 
                 btnType="button"

@@ -17,12 +17,15 @@ const CarCard = ( {car} : CarCardProps) => {
 
   const carRent = calculateCarRent(city_mpg, year)
   return (
+    /* Main card for display car */
     <div className='car-card group'>
         <div className='car-card__content'>
             <h2 className='car-card__content-title'>
                 {make} {model}
             </h2>
         </div>
+
+        {/* Display for the rental price */}
         <p className='flex mt-6 text-[32px] font-extrabold'>
             <span className='self-start text-[14px] font-extrabold'>
                 $
@@ -33,9 +36,12 @@ const CarCard = ( {car} : CarCardProps) => {
             </span>
         </p>
 
+        {/* Car image display */}
         <div className='relative w-full h-40 my-3 object-contain'>
             <Image src={generateCarImageUrl(car)} alt='car model' fill priority className='object-contain'/>
         </div>
+
+        {/* Container for additional car details */}
         <div className='relative flex w-full mt-2'>
             <div className='flex group-hover:invisible w-full justify-between text-gray'>
                 <div className=' flex flex-col justify-center items-center gap-2'>
@@ -58,6 +64,7 @@ const CarCard = ( {car} : CarCardProps) => {
                 </div>
             </div>
 
+            {/* "View More" button container */}
             <div className='car-card__btn-container'>
                 <CustomButton
                     title='View More'
@@ -70,6 +77,7 @@ const CarCard = ( {car} : CarCardProps) => {
             </div>
         </div>
 
+        {/* Modal component for displaying detailed car information */}
         <CarDetails isOpen={isOpen} closeModal={() => setisOpen(false)} car={car} />
     </div>
     

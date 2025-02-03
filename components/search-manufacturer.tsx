@@ -8,7 +8,7 @@ import { SearchManufacturerProps } from '@/types'
 import React from 'react'
 import { relative } from 'path'
 
-const SearchManufacturer = ({selected, setSelected } : SearchManufacturerProps) => {
+const SearchManufacturer = ({manufacturer, setManufacturer } : SearchManufacturerProps) => {
       const [query, setQuery] = useState("")
 
         const filteredManufacturers = 
@@ -24,8 +24,10 @@ const SearchManufacturer = ({selected, setSelected } : SearchManufacturerProps) 
 
   return (
     <div className='search-manufacturer'>
-      <Combobox value={selected} onChange={setSelected}>
+      <Combobox value={manufacturer} onChange={setManufacturer}>
         <div className='relative w-full'>
+          
+          {/* Button for the combobox. Click on the icon to see the complete dropdown */}
           <Combobox.Button className="absolute top-[14px]" >
             <Image src="/car-logo.svg" 
             width={20} 
@@ -35,6 +37,7 @@ const SearchManufacturer = ({selected, setSelected } : SearchManufacturerProps) 
             />
           </Combobox.Button>
 
+          {/* Input field for searching */}
           <Combobox.Input 
             className="search-manufacturer__input"
             displayValue={(manufacturer: string) => manufacturer}
@@ -42,12 +45,13 @@ const SearchManufacturer = ({selected, setSelected } : SearchManufacturerProps) 
             placeholder="Volkswagen"
           />
 
+          {/* Transition for displaying the options */}
           <Transition 
             as={Fragment}
             leave='transition ease-in duration-100'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
-            afterLeave={() => setQuery('')}
+            afterLeave={() => setQuery('')} // Reset the search query after the transition completes
           >
             <Combobox.Options>
               {filteredManufacturers.length === 0 && query !== "" ? (
@@ -75,6 +79,8 @@ const SearchManufacturer = ({selected, setSelected } : SearchManufacturerProps) 
                         >
                           {item}
                         </span>
+
+                        {/* Show an active blue background color if the option is selected */}
                         {selected ? (
                           <span
                             className={`absolute inset-y-0 left-0 flex items-center pl-3 ${

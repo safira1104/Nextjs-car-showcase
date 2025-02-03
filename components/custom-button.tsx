@@ -13,9 +13,12 @@ const CustomButton = ({title, containerStyles, handleClick,
     className={`custom-btn ${containerStyles}`}
     onClick={handleClick}
     >
+        {/* Render the button title with provided text styles */}
         <span className={`flex-1 ${textStyles}`}>
             {title}
         </span>
+
+        {/* Render the right-side icon if provided */}
         {rightIcon && (
           <div className='relative w-6 h-6'>
             <Image src={rightIcon} alt='right icon' fill className='object-contain' />
